@@ -20,23 +20,22 @@
 
 alumnos = {'Marisol': [34, 'Ñuñoa', 'Mujer'], 'Enzo': [27, 'Providencia', 'Hombre']}
 
-opcion = 0
 
-puts "Elige una opción"
-puts "(1) Ingresar datos de alumno"
-puts "(2) Editar datos de alumno"
-puts "(3) Eliminar alumno"
-puts "(4) Cantidad de alumnos"
-puts "(5) Comunas de alumnos"
-puts "(6) Alumnos entre 20 y 25 años"
-puts "(7) Suma de edades"
-puts "(8) Promedio de edades"
-puts "(9) Listas de personas según género"
-puts "(10) Salir"
-opcion = gets.chomp
-
-while opcion != 10 do
-
+def menu
+while opcion != 10
+  loop do
+    puts "Elige una opción"
+    puts "(1) Ingresar datos de alumno"
+    puts "(2) Editar datos de alumno"
+    puts "(3) Eliminar alumno"
+    puts "(4) Cantidad de alumnos"
+    puts "(5) Comunas de alumnos"
+    puts "(6) Alumnos entre 20 y 25 años"
+    puts "(7) Suma de edades"
+    puts "(8) Promedio de edades"
+    puts "(9) Listas de personas según género"
+    puts "(10) Salir"
+    opcion = gets.chomp
     case opcion
     when 1
       puts "Introduzca nombre, edad, comuna, género: "
@@ -47,15 +46,20 @@ while opcion != 10 do
       genero = linea[3]
       alumnos[nombre] = [edad, comuna, genero]
       print nombre
-
     when 2
+      print 'Ingresa un nombre para editar:'
+      nombre = gets.chomp
+      alumnos.select { |nombre| nombre}
 
     when 3
-
+      print 'Ingresa un nombre para eliminar:'
+      nombre = gets.chomp
+      alumnos[].delete(nombre)
     when 4
-
+      alumnos.count
     when 5
-
+      alumnos.map { |comuna| comuna}
+      
     when 6
 
     when 7
@@ -64,8 +68,9 @@ while opcion != 10 do
 
     when 9
 
-    else
-      puts "Opción incorrecta"
-
+    when 10
+      exit
     end
+  end
+end
 end
